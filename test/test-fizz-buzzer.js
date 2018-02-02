@@ -1,6 +1,7 @@
 'use strict';
-const expect = require('chai').expect;
 let fizzBuzzer = require('../fizzBuzzer.js');
+const expect = require('chai').expect;
+
 
 
 //, buzz when divisible by 5, and fizzbuzz when divisible by 15'
@@ -21,6 +22,9 @@ describe('fizzBuzzer', function(){
   /* negative cases */
   it('should throw an error when entry is NaN', 
     function() {
-      expect(function(){fizzBuzzer('a');}).to.throw(Error);
+      const badInputFields = ['a','c',true,[]];
+      badInputFields.forEach(function (field) {
+        expect(function(){fizzBuzzer(field);}).to.throw(Error);
+      });
     });
 });
